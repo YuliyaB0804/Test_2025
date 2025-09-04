@@ -1,3 +1,5 @@
+Yuliya Burak Test automation engineer with Python
+
 [Инструкция или как пользоваться этим репозиторием](#title1)
    - [Структура репозитория](#title2)
    - [Как пользоваться репозиторием](#title3)
