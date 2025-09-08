@@ -48,6 +48,8 @@ def to_string(array: list) -> str:
 def insert_to_list(array: list, item: int | str, indx: int) -> list:
     array.insert(indx, item)
     return array
+
+
 def list_to_string(array: list) -> str:
     return ' '.join(array)
 
