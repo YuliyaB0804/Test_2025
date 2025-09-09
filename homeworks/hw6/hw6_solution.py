@@ -10,6 +10,8 @@
 # true
 # Для experience = 10, threshold = 15, и reward = 4, результат должен быть:
 # false
+
+
 def level_up(experience: int, threshold: int, reward: int) -> bool:
     return experience + reward >= threshold
 
@@ -35,6 +37,8 @@ print(level_up(10, 15, 4))  # False
 # Для n = 808, результат должен быть: 14
 # 808 минут прошло, и это означает что сейчас 13:28, так что ответ должен быть
 # 1 + 3 + 2 + 8 = 14.
+
+
 def motor_time(n: int) -> int:
     # Количество прошедших часов с учётом суток
     hours = (n // 60) % 24
@@ -59,6 +63,8 @@ print(motor_time(808))  # 14  (13:28 -> 1+3+2+8)
 # '09:00' == '9:00 a.m.'
 # '23:15' == '11:15 p.m.'
 # '00:00' == '12:00 a.m.'
+
+
 def time_converter(hours_string: str) -> str:
     h, m = map(int, hours_string.split(':'))
     suffix = ['a.m.', 'p.m.'][h >= 12]
@@ -71,4 +77,3 @@ print(time_converter('12:30'))
 print(time_converter('09:00'))
 print(time_converter('23:15'))
 print(time_converter('00:00'))
-
