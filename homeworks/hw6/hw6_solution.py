@@ -16,9 +16,6 @@ def level_up(experience: int, threshold: int, reward: int) -> bool:
     return experience + reward >= threshold
 
 
-print(level_up(10, 15, 5))  # True
-print(level_up(10, 15, 4))  # False
-
 # Time
 # Однажды ночью вы отправляетесь кататься на мотоцикле. В 00:00 вы запускаете
 # двигатель, и встроенный таймер автоматически начинает отсчитывать
@@ -40,18 +37,11 @@ print(level_up(10, 15, 4))  # False
 
 
 def motor_time(n: int) -> int:
-    # Количество прошедших часов с учётом суток
     hours = (n // 60) % 24
-    # Остаток минут
     minutes = n % 60
-    # Формируем строку "HHMM" с ведущими нулями
     time_str = f"{hours:02d}{minutes:02d}"
-    # Суммируем все цифры
     return sum(int(d) for d in time_str)
 
-
-print(motor_time(240))  # 4   (04:00 -> 0+4+0+0)
-print(motor_time(808))  # 14  (13:28 -> 1+3+2+8)
 
 # Time converter
 # Ваша задача - переконвертировать время из 24-часового формата в 12-часовой,
@@ -71,9 +61,3 @@ def time_converter(hours_string: str) -> str:
     hour_12 = (h % 12) or 12
     minute_str = f'{m:02d}'
     return f'{hour_12}:{minute_str} {suffix}'
-
-
-print(time_converter('12:30'))
-print(time_converter('09:00'))
-print(time_converter('23:15'))
-print(time_converter('00:00'))
