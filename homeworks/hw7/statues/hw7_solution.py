@@ -11,6 +11,8 @@
 
 
 def missing_statues(statues):
+    if len(statues) == 0:
+        return 0
     min_size = min(statues)
     max_size = max(statues)
     total_needed = max_size - min_size + 1
