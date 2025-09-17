@@ -137,8 +137,7 @@ def add_ing(s: str) -> str:
 ```bash
     $ git push -u origin homework5
 ```
-14. Создайте [Pull Request](https://docs.github.com/ru/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) 
-из рабочей ветки(`homework5`) в основную ветку(`main` | `master`) ВАШЕГО репозитория. Название pull request'a должно быть следующим: `Homework5: <Name> <Surname>`
+14. Создайте [Pull Request](https://docs.github.com/ru/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) из рабочей ветки(`homework5`) в основную ветку(`main` | `master`) ВАШЕГО репозитория. Название pull request'a должно быть следующим: `Homework5: <Name> <Surname>`
 15. Подождите пока не пройдут(ушпешно!) все автоматические проверки 
 16. Если все хорошо, то можете делать слияние ваших изменений в основную ветку репозитория
 
