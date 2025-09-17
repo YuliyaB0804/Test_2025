@@ -10,15 +10,10 @@
 # отсутствуют статуи размеров 4, 5 и 7.
 
 
-def missing_statues(arr):
-    if not arr:
-        return 0  # если список пуст, ничего не нужно добавлять
-    min_size = min(arr)
-    max_size = max(arr)
-    # Общее число статуй, которые должны быть (от min до max включая)
+def missing_statues(statues):
+    min_size = min(statues)
+    max_size = max(statues)
     total_needed = max_size - min_size + 1
-    # Количество уже имеющихся статуй
-    actual = len(arr)
-    # Количество недостающих статуй
-    missing = total_needed - actual
+    unique_statues = set(statues)
+    missing = total_needed - len(unique_statues)
     return missing
