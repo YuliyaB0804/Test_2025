@@ -9,17 +9,17 @@
 #
 # assert solution(4561261212345464) == False
 # assert solution(4561261212345467) == True
-# https: // www.paypalobjects.com / en_GB / vhelp / paypalmanager_help / credit_card_numbers.htm
+# https: // www.paypalobjects.com / en_GB / vhelp / paypalmanager_help /
+# credit_card_numbers.htm
 
 
 def is_card_number_valid(number):
     number = str(number)
-    if not number.isdigit() or len (number) == 0:
-         return False
+    if not number.isdigit() or len(number) == 0:
+        return False
     total = 0
     reverse_digits = number[::-1]
-    for i in range (len(reverse_digits)):
-        digit = reverse_digits[i]
+    for i,digit in enumerate(reverse_digits):
         res = int(digit)
         if i % 2 == 1:
             res *= 2
