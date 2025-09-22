@@ -19,7 +19,7 @@ def is_card_number_valid(number):
         return False
     total = 0
     reverse_digits = number[::-1]
-    for i,digit in enumerate(reverse_digits):
+    for i, digit in enumerate(reverse_digits):
         res = int(digit)
         if i % 2 == 1:
             res *= 2
