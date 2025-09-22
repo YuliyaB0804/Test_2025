@@ -33,7 +33,7 @@ def ascending_sequence(arr):
             count += 1
             if count >= 1:
                 return False
-            #if i > 0 and arr[i - 1] >= arr[i + 1]:
+            # if i > 0 and arr[i - 1] >= arr[i + 1]:
             #    if i + 2 < len(arr) and arr[i] >= arr[i + 2]:
             #        return False
     return True
