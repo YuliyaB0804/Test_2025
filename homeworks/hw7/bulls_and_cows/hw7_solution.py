@@ -27,6 +27,7 @@ def generate_secret_number():
     # Первое число не должно быть 0
     if digits[0] == '0':
         for i in range(1, 10):
+            # Проверяем первый элемент, если он 0, то меняем местами с первым отличным от 0 числом
             if digits[i] != '0':
                 digits[0], digits[i] = digits[i], digits[0]
                 break
