@@ -15,10 +15,12 @@ def validate_arguments(func):
     def wrapper(*args, **kwargs):
         for arg in args:
             if not (isinstance(arg, (int, float)) and arg > 0):
-                raise ValueError("Все аргументы должны быть положительными числами.")
-        for key, value in kwargs.items():
+                raise ValueError("Все аргументы должны быть положительными"
+                                 " числами.")
+        for value in kwargs.values():
             if not (isinstance(value, (int, float)) and value > 0):
-                raise ValueError("Все аргументы должны быть положительными числами.")
+                raise ValueError("Все аргументы должны быть положительными"
+                                 " числами.")
         return func(*args, **kwargs)
     return wrapper
 
@@ -26,4 +28,3 @@ def validate_arguments(func):
 @validate_arguments
 def sum_positive(*args, **kwargs):
     return sum(args) + sum(kwargs.values())
-
