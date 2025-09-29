@@ -24,3 +24,5 @@ def concat_str(a, b):
 @check_is_number
 def arguments_summary(a, b):
     return a + b
+
+# def arguments_concatenate_negative(*args, **kwargs):

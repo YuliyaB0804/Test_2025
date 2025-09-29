@@ -15,12 +15,10 @@ def validate_arguments(func):
     def wrapper(*args, **kwargs):
         for arg in args:
             if not (isinstance(arg, (int, float)) and arg > 0):
-                raise ValueError("Все аргументы должны быть положительными"
-                                 " числами.")
+                raise ValueError("0 is not a positive")
         for value in kwargs.values():
             if not (isinstance(value, (int, float)) and value > 0):
-                raise ValueError("Все аргументы должны быть положительными"
-                                 " числами.")
+                raise ValueError("0 is not a positive")
         return func(*args, **kwargs)
     return wrapper
 
