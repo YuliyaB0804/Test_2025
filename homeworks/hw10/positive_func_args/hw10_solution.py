@@ -28,3 +28,8 @@ def validate_arguments(func):
 @validate_arguments
 def sum_positive(*args, **kwargs):
     return sum(args) + sum(kwargs.values())
+
+
+@validate_arguments
+def sum_negative(*args, **kwargs):
+    return sum(args) + sum(kwargs.values())
