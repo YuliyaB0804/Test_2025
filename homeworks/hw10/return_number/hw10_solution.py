@@ -17,12 +17,20 @@ def check_is_number(func):
 
 
 @check_is_number
-def concat_str(a, b):
-    return a + b
+def concat_str(*args, **kwargs):
+    result = ""
+    for arg in args:
+        result += str(arg)
+    for v in kwargs.values():
+        result += str(v)
+    return result
 
 
 @check_is_number
-def arguments_summary(a, b):
-    return a + b
+def arguments_summary(*args, **kwargs):
+    return sum(args) + sum(kwargs.values())
 
-# def arguments_concatenate_negative(*args, **kwargs):
+
+@check_is_number
+def arguments_concatenate_negative(*args, **kwargs):
+    return sum(args) + sum(kwargs.values())
