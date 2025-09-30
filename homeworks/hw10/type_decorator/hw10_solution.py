@@ -36,16 +36,16 @@ def typed(arg_type):
     return decorator
 
 
-@typed(arg_type=str)
+@typed(str)
 def add_str(a, b):
     return a + b
 
 
-@typed(arg_type=float)
+@typed(float)
 def add_float(a, b, c):
     return a + b + c
 
 
-@typed(arg_type=int)
+@typed(int)
 def add_int(a, b, c):
     return a + b + c
