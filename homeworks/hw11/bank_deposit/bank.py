@@ -27,20 +27,20 @@ class Bank:
         deposit = self.clients[client_id].get('deposit')
         if deposit is None:
             return False
-        return 0.10
+        interest_rate = 0.10
+        months = deposit.years * 12
+        balance = deposit.start_balance
+        for _ in range(months):
+            interest_month = balance * (interest_rate / 12)
+            balance += interest_month
+        total_amount = round(balance, 2)
+        return total_amount
 
     def close_deposit(self, client_id):
         if client_id not in self.clients:
             return False
         deposit = self.clients[client_id].get('deposit')
         if deposit:
-            interest_rate = 0.10
-            months = deposit.years * 12
-            balance = deposit.start_balance
-            for _ in range(months):
-                interest_month = balance * (interest_rate / 12)
-                balance += interest_month
-            total_amount = round(balance, 2)
             self.clients[client_id]['deposit'] = None
-            return total_amount
+            return True
         return False
