@@ -11,10 +11,7 @@ class Bank:
     def register_client(self, client_id, name):
         if client_id in self.clients:
             return False
-        self.clients[client_id] = {
-            'name': name,
-            'deposit': None
-        }
+        self.clients[client_id] = {'name': name, 'deposit': None}
         return True
 
     def open_deposit_account(self, client_id, start_balance, years):
@@ -26,23 +23,24 @@ class Bank:
 
     def calc_interest_rate(self, client_id):
         if client_id not in self.clients:
-            return None
+            return False
         deposit = self.clients[client_id].get('deposit')
         if deposit is None:
-            return None
-        annual_rate = 0.10
-        months = deposit.years * 12
-        balance = deposit.start_balance
-        for _ in range(months):
-            interest_month = balance * (annual_rate / 12)
-            balance += interest_month
-        return round(balance, 2)
+            return False
+        return 0.10
 
     def close_deposit(self, client_id):
         if client_id not in self.clients:
             return False
         deposit = self.clients[client_id].get('deposit')
         if deposit:
+            interest_rate = 0.10
+            months = deposit.years * 12
+            balance = deposit.start_balance
+            for _ in range(months):
+                interest_month = balance * (interest_rate / 12)
+                balance += interest_month
+            total_amount = round(balance, 2)
             self.clients[client_id]['deposit'] = None
-            return True
+            return total_amount
         return False

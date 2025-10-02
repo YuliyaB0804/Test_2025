@@ -3,17 +3,13 @@ class Reader:
         self.name = name
 
     def reserve_book(self, book):
-        result = book.reserve(self)
-        return result
+        return book.reserve(self)
 
     def cancel_reserve(self, book):
-        result = book.cancel_reserve(self)
-        return result
+        return book.cancel_reserve(self)
 
     def get_book(self, book):
-        result = book.get_book(self)
-        return result
+        return book.get_book(self)
 
     def return_book(self, book):
-        result = book.return_book(self)
-        return result
+        return book.return_book(self)
