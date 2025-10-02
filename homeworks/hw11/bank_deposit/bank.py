@@ -40,7 +40,8 @@ class Bank:
         if client_id not in self.clients:
             return False
         deposit = self.clients[client_id].get('deposit')
-        if deposit:
+        if deposit is not None:
+            amount = deposit
             self.clients[client_id]['deposit'] = None
-            return True
+            return amount
         return False
