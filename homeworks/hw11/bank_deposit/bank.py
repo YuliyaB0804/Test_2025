@@ -44,3 +44,5 @@ class Bank:
             total_amount = deposit
             self.clients[client_id]['deposit'] = None
             return total_amount
+        else:
+            return False

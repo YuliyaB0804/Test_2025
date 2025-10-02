@@ -3,8 +3,10 @@ class Reader:
         self.name = name
 
     def reserve_book(self, book):
-        result = book.reserve(self)
-        return bool(result)
+        if book.is_reserved():
+            return False
+        book.reserve(self)
+        return True
 
     def cancel_reserve(self, book):
         result = book.cancel_reserve(self)
