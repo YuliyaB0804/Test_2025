@@ -41,7 +41,7 @@ class Bank:
             return False
         deposit = self.clients[client_id].get('deposit')
         if deposit is not None:
-            amount = deposit
+            total_amount = deposit
             self.clients[client_id]['deposit'] = None
-            return amount
+            return total_amount
         return False
