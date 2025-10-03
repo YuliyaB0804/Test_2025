@@ -32,6 +32,7 @@ class Book:
     def get_book(self, reader):
         if self.borrowed_by:
             print(f"Книга '{self.book_name}' уже взята другим читателем")
+            return False
         elif self.reserved_by and self.reserved_by != reader:
             print(f"Книга '{self.book_name}' зарезервирована другим читателем")
             return False
