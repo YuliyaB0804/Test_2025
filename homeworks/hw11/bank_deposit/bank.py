@@ -55,3 +55,37 @@ class Bank:
         self.clients[client_id]['deposit'] = None
         total_amount = round(balance, 2)
         return total_amount
+
+
+class CurrencyConverter:
+    def __init__(self):
+        self.rates = {
+            'USD': 2.97,  # 1 USD ≈ 2.97 BYN
+            'EUR': 3.39,  # 1 EUR ≈ 3.39 BYN
+            'BYN': 1.0  # базовая валюта
+            }
+
+    def exchange_currency(self, currency, amount, target_currency=None):
+        if currency not in self.rates:
+            raise ValueError(f'Unsupported currency: {currency}')
+        if target_currency is None:
+            target_currency = 'BYN'
+        if target_currency not in self.rates:
+            raise ValueError(f'Unsupported target currency: {target_currency}')
+
+        amount_in_byn = amount * self.rates[currency]
+
+        if target_currency == 'BYN':
+            return round(amount_in_byn, 2), 'BYN'
+
+        target_amount = amount_in_byn / self.rates[target_currency]
+        return round(target_amount, 2), target_currency
+
+
+class Person:
+    def __init__(self, currency, amount):
+        self.currency = currency
+        self.amount = amount
+
+
+converter = CurrencyConverter()
