@@ -1,0 +1,33 @@
+# Положительные аргументы функции
+#
+# Напишите декоратор @validate_arguments, который проверяет, что все аргументы
+# функции являются положительными числами. Если встречается аргумент, не
+# соответствующий этому условию, функция должна вывести сообщение об ошибке.
+# Вот некоторые подсказки:
+# Внутри декоратора, используйте цикл for для перебора аргументов функции.
+# Используйте оператор if для проверки, является ли аргумент положительным
+# числом.
+# Если аргумент не соответствует условию, используйте оператор raise для
+# вызова исключения ValueError.
+
+
+def validate_arguments(func):
+    def wrapper(*args, **kwargs):
+        for arg in args:
+            if not (isinstance(arg, (int, float)) and arg > 0):
+                raise ValueError("0 is not a positive")
+        for value in kwargs.values():
+            if not (isinstance(value, (int, float)) and value > 0):
+                raise ValueError("0 is not a positive")
+        return func(*args, **kwargs)
+    return wrapper
+
+
+@validate_arguments
+def sum_positive(*args, **kwargs):
+    return sum(args) + sum(kwargs.values())
+
+
+@validate_arguments
+def sum_negative(*args, **kwargs):
+    return sum(args) + sum(kwargs.values())
