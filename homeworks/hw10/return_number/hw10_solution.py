@@ -8,22 +8,34 @@
 
 
 def check_is_number(func):
-    def wrapper(a, b):
-        result = func(a, b)
+    def wrapper(*args, **kwargs):
+        # Проверка числовых аргументов
+        for arg in args:
+            if not isinstance(arg, (int, float)):
+                raise ValueError("Аргументы должны быть числами")
+        for v in kwargs.values():
+            if not isinstance(v, (int, float)):
+                raise ValueError("Аргументы должны быть числами")
+        result = func(*args, **kwargs)
+        # Проверка результата
         if not isinstance(result, (int, float)):
             print("Ошибка: результат функции не является числом!")
         return result
     return wrapper
 
 
-@check_is_number
-def concat_str(*args, **kwargs):
-    result = ""
-    for arg in args:
-        result += str(arg)
-    for v in kwargs.values():
-        result += str(v)
-    return result
+def check_is_string(func):
+    def wrapper(*args, **kwargs):
+        # Проверка строковых аргументов
+        for arg in args:
+            if not isinstance(arg, str):
+                raise ValueError("Аргументы должны быть строкой")
+        for v in kwargs.values():
+            if not isinstance(v, str):
+                raise ValueError("Аргументы должны быть строкой")
+        result = func(*args, **kwargs)
+        return result
+    return wrapper
 
 
 @check_is_number
@@ -31,6 +43,11 @@ def arguments_summary(*args, **kwargs):
     return sum(args) + sum(kwargs.values())
 
 
-@check_is_number
-def arguments_concatenate_negative(*args, **kwargs):
-    return sum(args) + sum(kwargs.values())
+@check_is_string
+def concat_str(*args, **kwargs):
+    result = ""
+    for arg in args:
+        result += arg
+    for v in kwargs.values():
+        result += v
+    return result
