@@ -13,21 +13,17 @@
 
 def validate_arguments(func):
     def wrapper(*args, **kwargs):
-        for arg in args:
+        for index, arg in enumerate(args):
             if not (isinstance(arg, (int, float)) and arg > 0):
-                raise ValueError("0 is not a positive")
-        for value in kwargs.values():
+                raise ValueError(f"Argument at position {index} ({arg}) is not a positive number")
+        for key, value in kwargs.items():
             if not (isinstance(value, (int, float)) and value > 0):
-                raise ValueError("0 is not a positive")
+                raise ValueError(f"Argument '{key}' ({value}) is not a positive number")
         return func(*args, **kwargs)
     return wrapper
 
 
+# Пример функции с декоратором: суммирует положительные числа
 @validate_arguments
 def sum_positive(*args, **kwargs):
-    return sum(args) + sum(kwargs.values())
-
-
-@validate_arguments
-def sum_negative(*args, **kwargs):
     return sum(args) + sum(kwargs.values())
