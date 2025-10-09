@@ -15,11 +15,11 @@ def check_positive(func):
             if arg < 1:
                 raise ValueError(f"Аргумент в позиции {index} ({arg}) не "
                                  f"является положительным числом")
-        for name, v in kwargs.items():
-            if not isinstance(v, (int, float)):
+        for name, k in kwargs.items():
+            if not isinstance(k, (int, float)):
                 raise ValueError("Аргументы должны быть числами")
-            if v < 1:
-                raise ValueError(f"Аргумент '{name}' ({v}) не является"
+            if k < 1:
+                raise ValueError(f"Аргумент '{name}' ({k}) не является"
                                  f" положительным числом")
         return func(*args, **kwargs)
     return wrapper
