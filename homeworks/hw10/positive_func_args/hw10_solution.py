@@ -15,10 +15,12 @@ def validate_arguments(func):
     def wrapper(*args, **kwargs):
         for index, arg in enumerate(args):
             if not (isinstance(arg, (int, float)) and arg > 0):
-                raise ValueError(f"Argument at position {index} ({arg}) is not a positive number")
+                raise ValueError(f"Argument at position {index} ({arg}) is not"
+                                 f" a positive number")
         for key, value in kwargs.items():
             if not (isinstance(value, (int, float)) and value > 0):
-                raise ValueError(f"Argument '{key}' ({value}) is not a positive number")
+                raise ValueError(f"Argument '{key}' ({value}) is not "
+                                 f"a positive number")
         return func(*args, **kwargs)
     return wrapper
 
