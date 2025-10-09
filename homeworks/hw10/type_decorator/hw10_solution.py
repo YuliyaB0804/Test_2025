@@ -29,7 +29,8 @@ def typed(arg_type):
     def decorator(func):
         def wrapper(*args, **kwargs):
             converted_args = [arg_type(arg) for arg in args]
-            converted_kwargs = {key: arg_type(value) for key, value in kwargs.items()}
+            converted_kwargs = {key: arg_type(value) for key, value in
+                                kwargs.items()}
             result = func(*converted_args, **converted_kwargs)
             return result
         return wrapper
@@ -42,10 +43,10 @@ def add_str(a, b):
 
 
 @typed(float)
-def add_float(a, b, c):
-    return a + b + c
+def add_float(*args):
+    return sum(args)
 
 
 @typed(int)
-def add_int(a, b, c):
-    return a + b + c
+def add_int(*args):
+    return sum(args)
