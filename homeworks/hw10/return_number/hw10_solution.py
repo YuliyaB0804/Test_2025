@@ -7,47 +7,29 @@
 # print().
 
 
-def check_is_number(func):
+def check_positive(func):
     def wrapper(*args, **kwargs):
-        # Проверка числовых аргументов
-        for arg in args:
+        for index, arg in enumerate(args):
             if not isinstance(arg, (int, float)):
                 raise ValueError("Аргументы должны быть числами")
-        for v in kwargs.values():
+            if arg < 1:
+                raise ValueError(f"Аргумент в позиции {index} ({arg}) не "
+                                 f"является положительным числом")
+        for name, v in kwargs.items():
             if not isinstance(v, (int, float)):
                 raise ValueError("Аргументы должны быть числами")
-        result = func(*args, **kwargs)
-        # Проверка результата
-        if not isinstance(result, (int, float)):
-            print("Ошибка: результат функции не является числом!")
-        return result
+            if v < 1:
+                raise ValueError(f"Аргумент '{name}' ({v}) не является"
+                                 f" положительным числом")
+        return func(*args, **kwargs)
     return wrapper
 
 
-def check_is_string(func):
-    def wrapper(*args, **kwargs):
-        # Проверка строковых аргументов
-        for arg in args:
-            if not isinstance(arg, str):
-                raise ValueError("Аргументы должны быть строкой")
-        for v in kwargs.values():
-            if not isinstance(v, str):
-                raise ValueError("Аргументы должны быть строкой")
-        result = func(*args, **kwargs)
-        return result
-    return wrapper
-
-
-@check_is_number
+@check_positive
 def arguments_summary(*args, **kwargs):
     return sum(args) + sum(kwargs.values())
 
 
-@check_is_string
-def concat_str(*args, **kwargs):
-    result = ""
-    for arg in args:
-        result += arg
-    for v in kwargs.values():
-        result += v
-    return result
+@check_positive
+def arguments_concatenate_negative(*args, **kwargs):
+    return sum(args) + sum(kwargs.values())
