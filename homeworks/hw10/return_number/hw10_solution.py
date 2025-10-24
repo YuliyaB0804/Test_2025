@@ -33,3 +33,46 @@ def arguments_summary(*args, **kwargs):
 @check_positive
 def arguments_concatenate_negative(*args, **kwargs):
     return sum(args) + sum(kwargs.values())
+
+
+
+
+
+
+
+# Декоратор, который проверяет результат функции
+def check_number_output(func):
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        if not isinstance(result, (int, float, complex)):
+            print("Arguments should be a number")
+        return result
+    return wrapper
+
+# Пример функции arguments_summary
+@check_number_output
+def arguments_summary(*args, **kwargs):
+    # Ваша логика для суммы аргументов
+    total = 0
+    for arg in args:
+        if isinstance(arg, (int, float)):
+            total += arg
+    for value in kwargs.values():
+        if isinstance(value, (int, float)):
+            total += value
+    return total
+
+# Пример функции concat_str
+@check_number_output
+def concat_str(*args, **kwargs):
+    # Ваша логика для конкатенации строк
+    result = ''
+    for arg in args:
+        if not isinstance(arg, str):
+            return "Arguments should be a number"
+        result += arg
+    for value in kwargs.values():
+        if not isinstance(value, str):
+            return "Arguments should be a number"
+        result += value
+    return result
