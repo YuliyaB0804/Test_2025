@@ -1,4 +1,4 @@
-lesson = "abcdefgjiklmnoprstu"
+lesson = "Abcdefgjiklmnoprstu"
 
 print(lesson[0])
 print(lesson[-1])
