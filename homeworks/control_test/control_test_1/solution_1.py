@@ -1,9 +1,9 @@
-str1 = "Abcdefgjiklmnoprstu"
+STR1 = "Abcdefgjiklmnoprstu"
 
-print(str1[0])
-print(str1[-1])
-print(str1[2])
-print(str1[-3])
-print(len(str1))
-print(str1[::-1])
-print(str1[:9])
+print(STR1[0])
+print(STR1[-1])
+print(STR1[2])
+print(STR1[-3])
+print(len(STR1))
+print(STR1[::-1])
+print(STR1[:9])
