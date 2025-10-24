@@ -18,4 +18,5 @@ def number_even_odd():
     else:
         print("Число нечётное")
 
+
 number_even_odd()
