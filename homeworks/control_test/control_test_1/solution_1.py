@@ -1,9 +1,9 @@
-lesson = "Abcdefgjiklmnoprstu"
+str1 = "Abcdefgjiklmnoprstu"
 
-print(lesson[0])
-print(lesson[-1])
-print(lesson[2])
-print(lesson[-3])
-print(len(lesson))
-print(lesson[::-1])
-print(lesson[:9])
+print(str1[0])
+print(str1[-1])
+print(str1[2])
+print(str1[-3])
+print(len(str1))
+print(str1[::-1])
+print(str1[:9])
