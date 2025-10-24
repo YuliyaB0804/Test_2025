@@ -1,4 +1,4 @@
-s = "abcdef...xyz"
+string1 = "abcdef...xyz"
 
 
 def f(s, n):
@@ -6,7 +6,7 @@ def f(s, n):
     return part + part[:-1][::-1]
 
 
-print(f(s, 1))
-print(f(s, 2))
-print(f(s, 3))
-print(f(s, 4))
+print(f(string1, 1))
+print(f(string1, 2))
+print(f(string1, 3))
+print(f(string1, 4))
