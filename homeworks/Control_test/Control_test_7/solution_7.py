@@ -1,4 +1,6 @@
 s = "abcdef...xyz"
+
+
 def f(s, n):
     part = s[:n]
     return part + part[:-1][::-1]
