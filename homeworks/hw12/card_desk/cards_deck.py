@@ -60,8 +60,8 @@ class CardsDeck:
             raise ValueError("Error: enter a card number from 1 to 54")
         if not 1 <= number <= len(self.remaining_cards):
             raise ValueError("Error: enter a card number from 1 to 54")
-        card = self.remaining_cards.pop(number - 1)
-        return card
+        current_card = self.remaining_cards.pop(number - 1)
+        return current_card
 
     def get_remaining_cards(self):
         return self.remaining_cards
