@@ -1,5 +1,6 @@
 import unittest
-from homeworks.hw20.bank import Deposit, Bank, CurrencyConverter, Person
+from homeworks.hw20.bank import Bank, CurrencyConverter, Person
+
 
 class TestBank(unittest.TestCase):
     def setUp(self):
